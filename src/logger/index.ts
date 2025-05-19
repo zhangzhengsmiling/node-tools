@@ -10,3 +10,5 @@ class Logger {
 }
 
 export default Logger;
+
+export * from './table';

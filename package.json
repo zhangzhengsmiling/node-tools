@@ -4,9 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@types/commander": "^2.12.5",
     "@types/node": "^22.15.18",
-    "typescript": "^5.8.3"
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "4.3.6",
+    "typescript": "^5.8.3",
+    "@types/sharp": "^0.32.0"
   },
   "scripts": {
     "build": "tsc",
@@ -14,8 +19,17 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@types/sharp": "^0.32.0",
     "commander": "^14.0.0",
     "sharp": "^0.34.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }

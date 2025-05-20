@@ -27,23 +27,24 @@ export const compress_creator =
 
 // 目录压缩
 export const compress_dir =
-  (compress_config: CompressConfig) => (path_dir: string, out_dir: string) => {
-    return fs.readdirSync(path_dir).map((file) => {
-      compress_creator(compress_config)(
-        path.resolve(path_dir, file),
-        path.resolve(out_dir, file)
-      ).then(() => {
-        display_compress_rate(
-          file,
+  (compress_config: CompressConfig) => (path_dir: string, out_dir: string) =>
+    fs
+      .readdirSync(path_dir)
+      .map((file) =>
+        compress_creator(compress_config)(
           path.resolve(path_dir, file),
           path.resolve(out_dir, file)
-        );
-      });
-    });
-  };
+        ).then(() =>
+          display_compress_rate(
+            file,
+            path.resolve(path_dir, file),
+            path.resolve(out_dir, file)
+          )
+        )
+      );
 
 // 转换size
-const size = (byte: number) => {
+export const size = (byte: number) => {
   if (byte < 1024) return `${byte}B`;
   if (byte < 1024 * 1024) return `${(byte / 1024).toFixed(2)}KB`;
   if (byte < 1024 * 1024 * 1024) return `${(byte / 1024 / 1024).toFixed(2)}MB`;
@@ -52,11 +53,11 @@ const size = (byte: number) => {
 
 // 打印压缩日志
 export const display_compress_rate = (id: string, from: string, to: string) => {
-  Promise.all([fs.promises.stat(from), fs.promises.stat(to)]).then(
-    ([from, to]) => {
-      console.log(
-        `ID: ${id} 压缩前: ${size(from.size)} 压缩后: ${size(to.size)}`
-      );
-    }
+  return Promise.all([fs.promises.stat(from), fs.promises.stat(to)]).then(
+    ([from, to]) => ({
+      id,
+      before: from,
+      after: to,
+    })
   );
 };

@@ -127,6 +127,13 @@
   resolved "https://registry.npmmirror.com/@img/sharp-win32-x64/-/sharp-win32-x64-0.34.1.tgz#8a7922fec949f037c204c79f6b83238d2482384b"
   integrity sha512-hw1iIAHpNE8q3uMIRCgGOeDoz9KtFNarFLQclLxr/LK1VBkj8nby18RjFvr6aP7USRYAjTZW6yisnBWMX571Tw==
 
+"@types/commander@^2.12.5":
+  version "2.12.5"
+  resolved "https://registry.npmmirror.com/@types/commander/-/commander-2.12.5.tgz#8be6f1452747452c5b744275155ff358e9eda77e"
+  integrity sha512-YXGZ/rz+s57VbzcvEV9fUoXeJlBt5HaKu5iUheiIWNsJs23bz6AnRuRiZBRVBLYyPnixNvVnuzM5pSaxr8Yp/g==
+  dependencies:
+    commander "*"
+
 "@types/node@^22.15.18":
   version "22.15.18"
   resolved "https://registry.npmmirror.com/@types/node/-/node-22.15.18.tgz#2f8240f7e932f571c2d45f555ba0b6c3f7a75963"
@@ -168,6 +175,11 @@ color@^4.2.3:
   dependencies:
     color-convert "^2.0.1"
     color-string "^1.9.0"
+
+commander@*, commander@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.npmmirror.com/commander/-/commander-14.0.0.tgz#f244fc74a92343514e56229f16ef5c5e22ced5e9"
+  integrity sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==
 
 detect-libc@^2.0.3:
   version "2.0.4"
